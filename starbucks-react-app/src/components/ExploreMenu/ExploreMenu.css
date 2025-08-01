@@ -1,0 +1,89 @@
+/* ExploreMenu.css */
+
+.explore-menu {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  color: #2a2a2a;
+}
+
+.explore-menu h1 {
+  font-size: 2.8rem;
+  margin-bottom: 12px;
+  color: #28a745; /* nice green */
+  font-weight: 700;
+}
+
+.explore-menu-text {
+  font-size: 1.15rem;
+  margin-bottom: 30px;
+  color: #555;
+  line-height: 1.5;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.explore-menu-list {
+  display: flex;
+  justify-content: flex-start; /* align items left */
+  gap: 30px;
+  overflow-x: auto;  /* enable horizontal scroll if needed */
+  white-space: nowrap; /* prevent wrapping */
+  padding-bottom: 10px; /* some padding for scrollbar */
+  -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
+}
+
+/* Make each menu item inline-block to avoid wrapping */
+.explore-menu-list-item {
+  flex: 0 0 auto; /* prevent shrinking */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  width: 140px;
+  border-radius: 20px;
+  padding: 10px;
+  user-select: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.explore-menu-list-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(40, 167, 69, 0.3); /* subtle green shadow */
+}
+
+.explore-menu-list-item img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%; /* round image */
+  border: 3px solid transparent;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.explore-menu-list-item img.active {
+  border-color: #28a745; /* bright green border */
+  box-shadow: 0 0 15px 4px rgba(40, 167, 69, 0.6);
+}
+
+.explore-menu-list-item p {
+  margin-top: 10px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+hr {
+  margin-top: 40px;
+  border: none;
+  height: 2px;
+  background: #28a745;
+  width: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+}
