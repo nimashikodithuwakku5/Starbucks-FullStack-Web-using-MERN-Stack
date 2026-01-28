@@ -62,6 +62,26 @@
   margin: 10px 0 0 0;
 }
 
+.food-item-add-btn {
+  margin-top: 12px;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 8px;
+  background-color: #00704A; /* Starbucks green tone */
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.1s ease, opacity 0.2s ease;
+}
+
+.food-item-add-btn:hover {
+  opacity: 0.95;
+}
+
+.food-item-add-btn:active {
+  transform: scale(0.98);
+}
+
 .food-item-img-container {
   position: relative;
 }

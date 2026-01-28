@@ -1,8 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import './Navbar.css'
 import { assets } from '../../assets/assets';
+import { StoreContext } from '../../context/StoreContext';
 
-const Navbar = ({setShowLogin}) => {
+const Navbar = ({setShowLogin, onCartClick}) => {
+  const { cartItems } = useContext(StoreContext);
+  const cartCount = Object.values(cartItems || {}).reduce((sum, qty) => sum + qty, 0);
 
   const[menu,setMenu] = useState("menu");
 
@@ -24,10 +27,9 @@ const Navbar = ({setShowLogin}) => {
         <li onClick={()=>handleScroll("contact-us")} className={menu ==="contact-us"?"active":""}>contact us</li>
       </ul>
       <div className="navbar-right">
-        <img src={assets.search_icon} alt="" />
-        <div className="navbar-search-icon">
-          <img src={assets.basket_icon} alt="" />
-          <div className="dot"></div>
+        <div className="navbar-search-icon" onClick={onCartClick} role="button" aria-label="Open cart">
+          <img src={assets.basket_icon} alt="Basket" />
+          {cartCount > 0 && <div className="dot" aria-label={`Items in cart: ${cartCount}`}>{cartCount}</div>}
         </div>
         <button onClick={()=>setShowLogin(true)}>Sign in</button>
       </div>

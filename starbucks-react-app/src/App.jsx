@@ -6,17 +6,19 @@ import FoodDisplay from './components/FoodDisplay/FoodDisplay';
 import Footer from './components/Footer/Footer';
 import AppDownload from './components/AppDownload/AppDownload';
 import LoginPopup from './components/LoginPopup/LoginPopup';
+import CartDrawer from './components/CartDrawer/CartDrawer';
 
 const App = () => {
   const [category, setCategory] = useState("All");
   const [showLogin, setShowLogin] = useState(false);
+  const [showCart, setShowCart] = useState(false);
 
   return (
     <>
       {showLogin && <LoginPopup setShowLogin={setShowLogin} />}
 
       {/* Navbar */}
-      <Navbar setShowLogin={setShowLogin} />
+      <Navbar setShowLogin={setShowLogin} onCartClick={() => setShowCart(true)} />
 
       {/* Header */}
       <div id="home">
@@ -39,6 +41,8 @@ const App = () => {
       <div id="contact-us">
         <Footer />
       </div>
+
+      {showCart && <CartDrawer onClose={() => setShowCart(false)} />}
     </>
   );
 };
